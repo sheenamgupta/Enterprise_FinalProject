@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>COURSE</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="callingService.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="style.css"/>
+
+</style>
+</head>
+<body>
+
+<header>
+  <h2>COURSE</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      <li><a class="active" href="College.html">Home</a></li>
+      <li><a href="Course.html?id=all">View & Modify Course</a></li>
+      <li><a href="AddCourse.html?id=new">Add new Course</a></li>
+      	
+    </ul>
+  </nav>
+  
+  <article>
+	<p id="showData"></p>
+  </article>
+</section>
+
+<script>$(document).ready(function(){
+
+	//displayAll();
+	var params = new window.URLSearchParams(window.location.search);
+	var CourseId=params.get('id').toString(); //validate the query string
+		
+	if (CourseId=="all")
+	{
+		displayAll();
+	}
+	else
+	{
+		var result = confirm("Do you really want to delete this record?"); 
+		if (result == true) { 
+			deleteDocument(CourseId);
+		} 
+	}
+});
+
+</script>
+
+
+</body>
+</html>
